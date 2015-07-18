@@ -1,6 +1,36 @@
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.neenbedankt.gradle.plugins:android-apt:1.4'
+    }
+}
+
 apply plugin: 'com.android.library'
+apply plugin: 'com.neenbedankt.android-apt'
 
 android {
     compileSdkVersion 22
     buildToolsVersion "22.0.1"
+}
+
+dependencies {
+    compile 'com.android.support:support-annotations:22.2.0'
+
+    provided 'org.projectlombok:lombok:1.16.4'
+    apt 'org.projectlombok:lombok:1.16.4'
+
+    compile 'com.squareup.okhttp:okhttp-urlconnection:2.4.0'
+    compile 'com.squareup.okhttp:okhttp:2.4.0'
+    compile 'com.squareup.retrofit:retrofit:1.9.0'
+    debugCompile 'com.squareup.retrofit:retrofit-mock:1.9.0'
+
+    compile 'io.reactivex:rxjava:1.0.11'
+
+    compile 'com.google.dagger:dagger:2.0'
+    apt 'com.google.dagger:dagger-compiler:2.0'
+    provided 'org.glassfish:javax.annotation:10.0-b28'
+
+    compile 'joda-time:joda-time:2.8.1'
 }
