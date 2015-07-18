@@ -11,6 +11,8 @@ apply plugin: 'com.android.library'
 apply plugin: 'com.neenbedankt.android-apt'
 
 android {
+    publishNonDefault true
+
     compileSdkVersion 22
     buildToolsVersion "22.0.1"
 }
