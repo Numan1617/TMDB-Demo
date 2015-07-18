@@ -1,9 +1,11 @@
 package com.numan1617.api;
 
 import com.numan1617.api.model.Movie;
+import com.numan1617.api.model.PagedResults;
 
 import retrofit.converter.ConversionException;
 import retrofit.converter.Converter;
+import retrofit.http.Query;
 import retrofit.mime.TypedByteArray;
 import retrofit.mime.TypedInput;
 import rx.Observable;
@@ -90,5 +92,25 @@ public class MockMovieService implements MovieService {
             e.printStackTrace();
             return null;
         }
+    }
+
+    @Override
+    public Observable<Movie> getLatestMovie() {
+        return null;
+    }
+
+    @Override
+    public Observable<PagedResults<Movie>> getUpcomingMovies(@Query("page") Integer page, @Query("language") String language) {
+        return null;
+    }
+
+    @Override
+    public Observable<PagedResults<Movie>> getNowPlayingMovies(@Query("page") Integer page, @Query("language") String language) {
+        return null;
+    }
+
+    @Override
+    public Observable<PagedResults<Movie>> getTopRatedMovies(@Query("page") Integer page, @Query("language") String language) {
+        return null;
     }
 }
