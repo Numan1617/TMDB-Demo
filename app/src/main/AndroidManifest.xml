@@ -1,6 +1,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.numan1617.tmdb">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:name=".TmdbApplication"
         android:allowBackup="true"
