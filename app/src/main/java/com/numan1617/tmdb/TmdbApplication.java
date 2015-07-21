@@ -36,7 +36,7 @@ public class TmdbApplication extends Application {
                 .build();
         applicationComponent.inject(this);
     }
-    
+
     public TmdbApplicationComponent component() {
         return applicationComponent;
     }
