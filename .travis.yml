@@ -1,11 +1,14 @@
 language: android
 android:
   components:
-    - platform-tools
-    - build-tools-23.0.2
-    - android-23
-    - extra-android-m2repository
-    - extra-google-m2repository
-
+  - tools
+  - platform-tools
+  - build-tools-23.0.2
+  - android-23
+  - extra-android-m2repository
+  - extra-google-m2repository
 script:
-   - ./gradlew build connectedCheck
+- ./gradlew build connectedCheck
+env:
+  global:
+    secure: oZ235+E305Dk+0Yh5cqpgrj9dyd8FaCto4YNv3OnDKVKCyk5TQzoX7Qj4jvVJBjJnmrVUTy3kp/GxgCKresdAcGF5EbMAzvZurtAhepKYoww9HRVBBafoSQzF2TP12svd1vJ/NwvK6RPtyaE9EdeBFoie/otThUznbekYFkhODKawwUhddV0b5v/pgI+i1j3keL9yF44c72e/FM1euOs+zFYZWQATkqBdrZGMXFT4BTv9og/mpk1mWfAZkYNRncxPhgE3ttwl5M4zSZWr8AVjnuteLE/bgw74LGJ1D+jGIaB7E8De74/HzdSehhme7FinXpJFL/v61eCSIMlAbck/fNvCaLWjHgeF+IK/ZEZdNzuN5RJBYIfWChy8aFAyGXOdEQsOSe2dlWadUXbUZCJmtzG/+2X2StAojwG2bjQwHN3CAMXQSXstqCZ/7u3PK969MA3q2bxCQv+3r75fDHxcX4YgQaMICiRYH1Y3JL0x2Oqoj+wNZnL8IV5F1xsaNjof5PRpyWxBy8kgVWGVztmF1yi/461TPSSmOdWXSiqiFiVf8lrSB/Xa+ceUt/FKC7OJLsR8kMEDOicl2zmo2wpd68bhwD2dDAvKgApHx8iTpsbU9khSrRzgw8g+Reni+z2mfoH5GkEJLwf5zOxuPcHE91DfTjz3/Gm3MYFUGB9t04=
