@@ -1,14 +1,20 @@
 language: android
 android:
   components:
-  - tools
-  - platform-tools
-  - build-tools-23.0.2
-  - android-23
-  - extra-android-m2repository
-  - extra-google-m2repository
+    - tools
+    - platform-tools
+    - build-tools-23.0.2
+    - android-23
+    - extra-android-m2repository
+    - extra-google-m2repository
+    - sys-img-armeabi-v7a-android-21
+before_script:
+  - echo no | android create avd --force -n test -t android-21 --abi armeabi-v7a
+  - emulator -avd test -no-skin -no-audio -no-window &
+  - android-wait-for-emulator
+  - adb shell input keyevent 82 &
 script:
-- ./gradlew build connectedCheck
+  - ./gradlew build connectedCheck
 env:
   global:
     secure: lkPcEcxppmmmQugls7Itpfv9MhSjwtOTesEkeTEDATm/lw9pu6UY+Ddp5U3VhT7x4JkR0d9HE3ZSvaghM9w63tkzlzvbmSO98TohHghMaxFRo0ClloOiKrhupnattRxfyCOTypVE5sS1mwQRv0n/ej1qoMFJfjeSb5q161Ic0UsQdxhGhrspuAa+g3e3ViVGHnDVBUukPdZUQdo9pvIlPr9v/Mkkb5gyLdsuipBbUq8wvNjTrp0SY+5HpNGSePXMXTQP1F943exa5sCbBZpEfZZPsH/ia9lJcYf7dvTpHO4R6JZq/GWDkHKIAE5fe4TF5352Zin6D83PD3WWnc6LjmlwJU8EUVHmZTLjXa+8BgHZsbhL9JHPQYRSm6rGEmMeBkJLhXIN/1a5ypwBtEYQAFM4M0AeYoW+4CiHHCX0+k+pvqyhvO0LZEe7gDfZ3TOxNvy0sTVP/uPfBwxyYQ6cDGlnjydjJK3E2oft7ooA2HCw2EoJ8YmbAaVDCZfW6mVk15z3BS7w9ZggkfNRA1G4DNBPKuLt1wgbTY824p38AVn50WUmRvjm67C4zTAsc+2IRV8VlAfcHJlcNgAG0gWE/Uf+ihnkW5C3BTaSXdsRwX5WbrgUC3k+g0FhhIznrhMy5GOh2egw50SflsD8qoICpXnrrqxoAxvXR/M6/MhDsYs=
