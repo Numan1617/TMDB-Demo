@@ -30,7 +30,7 @@ android {
     publishNonDefault true
 
     defaultConfig {
-        buildConfigField "String", "TMDB_API_KEY", hasProperty('TMDB_API_KEY') ? TMDB_API_KEY : System.getenv('TMDB_API_KEY')
+        buildConfigField "String", "TMDB_API_KEY", project.hasProperty('TMDB_API_KEY') ? TMDB_API_KEY : System.getenv('TMDB_API_KEY')
     }
 
     compileSdkVersion 23
