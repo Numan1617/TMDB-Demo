@@ -16,6 +16,7 @@
 
 package com.numan1617.tmdb.feature.splash;
 
+import com.numan1617.api.ConfigurationService;
 import com.numan1617.tmdb.PerActivity;
 
 import dagger.Module;
@@ -32,7 +33,7 @@ public class SplashModule {
 
     @Provides
     @PerActivity
-    SplashPresenter provideSplashPresenterPresenter() {
-        return new SplashPresenter(activity);
+    SplashPresenter provideSplashPresenterPresenter(ConfigurationService configurationService) {
+        return new SplashPresenter(activity, configurationService);
     }
 }

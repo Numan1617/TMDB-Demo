@@ -28,6 +28,12 @@ public final class DebugApiModule {
 
     @Provides
     @Singleton
+    ConfigurationService provideConfigurationService(RestAdapter restAdapter, Converter converter) {
+        return restAdapter.create(ConfigurationService.class);
+    }
+
+    @Provides
+    @Singleton
     MovieService provideMovieService(RestAdapter restAdapter, MockRestAdapter mockRestAdapter, Converter converter, @IsMockMode boolean isMockMode) {
         if (isMockMode) {
             return mockRestAdapter.create(MovieService.class, new MockMovieService(converter));

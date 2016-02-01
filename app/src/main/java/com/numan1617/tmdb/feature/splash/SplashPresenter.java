@@ -16,12 +16,37 @@
 
 package com.numan1617.tmdb.feature.splash;
 
+import com.numan1617.api.ConfigurationService;
+import com.numan1617.api.model.Configuration;
+
+import android.support.annotation.NonNull;
+
+import rx.functions.Action1;
+
 public class SplashPresenter {
 
     private final View view;
+    private final ConfigurationService configurationService;
 
-    public SplashPresenter(View view) {
+    public SplashPresenter(@NonNull final View view, @NonNull final ConfigurationService configurationService) {
         this.view = view;
+        this.configurationService = configurationService;
+    }
+
+    public void initialise() {
+        configurationService.configuration()
+                .subscribe(
+                        new Action1<Configuration>() {
+                            @Override
+                            public void call(Configuration configuration) {
+                                saveConfiguration(configuration);
+                            }
+                        }
+                );
+    }
+
+    private void saveConfiguration(@NonNull final Configuration configuration) {
+
     }
 
     public interface View {

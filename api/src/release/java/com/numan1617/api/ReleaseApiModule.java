@@ -20,6 +20,12 @@ public final class ReleaseApiModule {
     }
 
     @Provides
+    @Singleton
+    ConfigurationService provideConfigurationService(RestAdapter restAdapter, Converter converter) {
+        return restAdapter.create(ConfigurationService.class);
+    }
+
+    @Provides
     RestAdapter.LogLevel provideLogLevel() {
         return RestAdapter.LogLevel.NONE;
     }

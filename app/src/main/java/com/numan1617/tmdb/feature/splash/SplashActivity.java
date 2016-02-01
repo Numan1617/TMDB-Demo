@@ -20,7 +20,20 @@ import com.numan1617.tmdb.R;
 import com.numan1617.tmdb.TmdbApplicationComponent;
 import com.numan1617.tmdb.base.BaseActivity;
 
+import android.os.Bundle;
+
+import javax.inject.Inject;
+
 public class SplashActivity extends BaseActivity implements SplashPresenter.View {
+
+    @Inject
+    SplashPresenter presenter;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        presenter.initialise();
+    }
 
     @Override
     protected void onCreateComponent(TmdbApplicationComponent applicationComponent) {

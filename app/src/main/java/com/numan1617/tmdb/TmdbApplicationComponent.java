@@ -1,6 +1,7 @@
 package com.numan1617.tmdb;
 
 import com.numan1617.api.ApiComponent;
+import com.numan1617.api.ConfigurationService;
 import com.numan1617.api.MovieService;
 
 import dagger.Component;
@@ -14,6 +15,7 @@ import dagger.Component;
 )
 public interface TmdbApplicationComponent {
     MovieService movieService();
+    ConfigurationService configurationService();
 
     void inject(TmdbApplication application);
 }
