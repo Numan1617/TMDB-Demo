@@ -58,6 +58,9 @@ dependencies {
     compile 'com.android.support:recyclerview-v7:23.1.1'
     compile 'com.android.support:design:23.1.1'
 
+    provided 'org.projectlombok:lombok:1.16.4'
+    apt 'org.projectlombok:lombok:1.16.4'
+
     compile 'com.jakewharton:butterknife:7.0.1'
 
     compile 'com.jakewharton.timber:timber:4.1.0'
