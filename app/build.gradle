@@ -58,6 +58,8 @@ dependencies {
     compile 'com.android.support:recyclerview-v7:23.1.1'
     compile 'com.android.support:design:23.1.1'
 
+    compile 'com.jakewharton.threetenabp:threetenabp:1.0.3'
+
     provided 'org.projectlombok:lombok:1.16.4'
     apt 'org.projectlombok:lombok:1.16.4'
 
