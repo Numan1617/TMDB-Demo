@@ -35,6 +35,6 @@ public interface ConfigurationService {
      *
      * http://image.tmdb.org/t/p/w500/8uO0gUM8aNqYLs1OsTBQiXu0fEv.jpg
      */
-    @GET("configuration")
+    @GET("/configuration")
     Observable<Configuration> configuration();
 }
