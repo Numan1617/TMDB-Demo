@@ -39,7 +39,7 @@ public class TMDBConfiguration {
     }
 
     public boolean isUpToDate() {
-        Duration durationSinceLastUpdate = Duration.between(Instant.now(), lastUpdated);
-        return durationSinceLastUpdate.toDays() > 7;
+        Duration durationSinceLastUpdate = Duration.between(lastUpdated, Instant.now());
+        return durationSinceLastUpdate.toDays() < 7;
     }
 }
