@@ -45,8 +45,10 @@ public class ConfigurationStorage {
 
     public Observable<TMDBConfiguration> configuration() {
         return Observable.combineLatest(
-                Observable.just(sharedPreferences.getString(KEY_BASE_IMAGE_URL, null)),
-                Observable.just(sharedPreferences.getString(KEY_LAST_UPDATED, null)),
+                Observable.just(sharedPreferences.getString(KEY_BASE_IMAGE_URL, null))
+                        .filter(baseImageUrl -> baseImageUrl != null),
+                Observable.just(sharedPreferences.getString(KEY_LAST_UPDATED, null))
+                        .filter(lastUpdated -> lastUpdated != null),
                 (baseImageUrl, lastUpdated) -> TMDBConfiguration.from(baseImageUrl, Instant.parse(lastUpdated))
         );
     }
