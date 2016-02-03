@@ -1,8 +1,8 @@
 package com.numan1617.tmdb;
 
 import com.numan1617.api.ApiComponent;
-import com.numan1617.api.ConfigurationService;
 import com.numan1617.api.MovieService;
+import com.numan1617.tmdb.repository.ConfigurationRepository;
 
 import dagger.Component;
 
@@ -11,11 +11,12 @@ import dagger.Component;
  */
 @ApplicationScope
 @Component(
-        dependencies = {ApiComponent.class}
+        dependencies = {ApiComponent.class},
+        modules = ApplicationModule.class
 )
 public interface TmdbApplicationComponent {
     MovieService movieService();
-    ConfigurationService configurationService();
+    ConfigurationRepository configurationRepository();
 
     void inject(TmdbApplication application);
 }

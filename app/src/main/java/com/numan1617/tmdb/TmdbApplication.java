@@ -1,10 +1,10 @@
 package com.numan1617.tmdb;
 
-import android.app.Application;
-import android.content.Context;
-
 import com.numan1617.api.ApiComponent;
 import com.numan1617.api.DaggerApiComponent;
+
+import android.app.Application;
+import android.content.Context;
 
 import timber.log.Timber;
 
@@ -32,6 +32,7 @@ public class TmdbApplication extends Application {
         ApiComponent apiComponent = DaggerApiComponent.create();
         applicationComponent = DaggerTmdbApplicationComponent
                 .builder()
+                .applicationModule(new ApplicationModule(this))
                 .apiComponent(apiComponent)
                 .build();
         applicationComponent.inject(this);
