@@ -16,40 +16,30 @@
 
 package com.numan1617.tmdb.feature.splash;
 
-import com.numan1617.api.ConfigurationService;
-import com.numan1617.api.model.Configuration;
+import com.numan1617.tmdb.repository.ConfigurationRepository;
 
 import android.support.annotation.NonNull;
-
-import rx.functions.Action1;
 
 public class SplashPresenter {
 
     private final View view;
-    private final ConfigurationService configurationService;
+    private final ConfigurationRepository configurationRepository;
 
-    public SplashPresenter(@NonNull final View view, @NonNull final ConfigurationService configurationService) {
+    public SplashPresenter(@NonNull final View view, @NonNull final ConfigurationRepository configurationRepository) {
         this.view = view;
-        this.configurationService = configurationService;
+        this.configurationRepository = configurationRepository;
     }
 
     public void initialise() {
-        configurationService.configuration()
+        configurationRepository.configuration()
                 .subscribe(
-                        new Action1<Configuration>() {
-                            @Override
-                            public void call(Configuration configuration) {
-                                saveConfiguration(configuration);
-                            }
-                        }
+                        ignored -> view.goToMoviesList(),
+                        Throwable::printStackTrace
                 );
-    }
-
-    private void saveConfiguration(@NonNull final Configuration configuration) {
-
     }
 
     public interface View {
 
+        void goToMoviesList();
     }
 }

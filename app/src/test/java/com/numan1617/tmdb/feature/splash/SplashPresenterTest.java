@@ -16,8 +16,8 @@
 
 package com.numan1617.tmdb.feature.splash;
 
-import com.numan1617.api.ConfigurationService;
-import com.numan1617.api.model.Configuration;
+import com.numan1617.tmdb.repository.ConfigurationRepository;
+import com.numan1617.tmdb.repository.TMDBConfiguration;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -33,24 +33,24 @@ import static org.mockito.Mockito.when;
 @RunWith(MockitoJUnitRunner.class)
 public class SplashPresenterTest {
 
-    private final BehaviorSubject<Configuration> configurationServiceSubject = BehaviorSubject.create();
+    private final BehaviorSubject<TMDBConfiguration> configurationServiceSubject = BehaviorSubject.create();
 
     @Mock
     private SplashPresenter.View view;
     @Mock
-    private ConfigurationService configurationService;
+    private ConfigurationRepository configurationRepository;
 
     private SplashPresenter presenter;
 
     @Before
     public void setUp() throws Exception {
-        presenter = new SplashPresenter(view, configurationService);
-        when(configurationService.configuration()).thenReturn(configurationServiceSubject);
+        presenter = new SplashPresenter(view, configurationRepository);
+        when(configurationRepository.configuration()).thenReturn(configurationServiceSubject);
     }
 
     @Test
     public void initialise() {
         presenter.initialise();
-        verify(configurationService).configuration();
+        verify(configurationRepository).configuration();
     }
 }

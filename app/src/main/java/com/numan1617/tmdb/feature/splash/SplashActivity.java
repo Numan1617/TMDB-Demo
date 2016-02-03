@@ -48,4 +48,9 @@ public class SplashActivity extends BaseActivity implements SplashPresenter.View
     protected int layoutId() {
         return R.layout.activity_splash;
     }
+
+    @Override
+    public void goToMoviesList() {
+
+    }
 }
