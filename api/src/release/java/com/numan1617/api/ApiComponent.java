@@ -11,4 +11,5 @@ import dagger.Component;
 @Component(modules = { ReleaseApiModule.class })
 public interface ApiComponent {
     MovieService movieService();
+    ConfigurationService configurationService();
 }
